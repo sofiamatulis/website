@@ -13,14 +13,40 @@ class App extends Component {
 
   constructor() {
     super();
+   this.onClick = this.onClick.bind(this);
     this.state = {
-      showIceCream: false
+      showIceCream: false,
+      about: false
     }
   }
+
   onClick(e){
     e.preventDefault();
     this.setState({showIceCream: !this.state.showIceCream})
   }
+
+  name(e) {
+    e.preventDefault();
+    this.setState({about: !this.state.about})
+
+  }
+
+ //  handleClick = () => {
+ //   if (this.state.hasFile) {
+ //     this.props.formInstanceRemoved(props.instanceId);
+ //     this.setState({
+ //       about: false,
+ //       uploadBtnText: 'Simulate file upload',
+ //     });
+ //   } else {
+ //     this.props.formInstanceUploaded(props.instanceId, props.blueprintId);
+ //     this.setState({
+ //       hasFile: true,
+ //       uploadBtnText: 'Remove file',
+ //     });
+ //   }
+ // };
+
 
   render() {
     return (
@@ -65,7 +91,7 @@ class App extends Component {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <a className="navbar-brand" href="#">Ice cream</a>
+                        <a className="navbar-brand" href="#">Home</a>
                     </div>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav">
@@ -73,7 +99,7 @@ class App extends Component {
                                 <a href="#">About</a>
                             </li>
                             <li>
-                                <a href="#">Services</a>
+                                <a href="#">All The Ice Cream</a>
                             </li>
                             <li>
                                 <a href="#">Contact</a>
@@ -89,7 +115,7 @@ class App extends Component {
 
             <section>
             <div>
-               <a onClick={this.onClick.bind(this)} href='#'>Click Here</a>
+               <a onClick={this.onClick.bind(this)} href='#'>My favorite Ice cream</a>
               {this.state.showIceCream && < IceCream / >}
             </div>
 
@@ -99,9 +125,13 @@ class App extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h1 className="section-heading">About me</h1>
-                            <p className="lead section-lead">about me</p>
-                            <p className="section-paragraph"> here</p>
+                            <h1 className="section-heading"></h1>
+                            <div>
+                               <a onClick={this.name.bind(this)} href='#'>Who am I</a>
+                              {this.state.about && < About / >}
+                            </div>
+                            <p className="lead section-lead"> </p>
+                            <p className="section-paragraph"> </p>
                         </div>
                     </div>
                 </div>
@@ -151,7 +181,19 @@ class IceCream extends React.Component {
   }
   render(){
     return(
-      <div>I'm Ice Cream</div>
+      <div>Greg's</div>
+    )
+  }
+}
+
+
+class About extends React.Component {
+  constructor() {
+    super()
+  }
+  render(){
+    return(
+      <div>I like eating ice cream</div>
     )
   }
 }
