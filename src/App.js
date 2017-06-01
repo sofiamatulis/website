@@ -1,20 +1,37 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import icecream from './icecream.png';
+// import IceCream from './IceCream.js';
+
+
 import './App.css';
 import './css/bootstrap.css';
 
 
+
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      showIceCream: false
+    }
+  }
+  onClick(e){
+    e.preventDefault();
+    this.setState({showIceCream: !this.state.showIceCream})
+  }
+
   render() {
     return (
       <div className="App">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"></link>
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={icecream} className="App-logo" alt="logo" />
           <h2>Sofia</h2>
         </div>
         <p className="App-intro">
-          My foodie adventures
+          The Ice Cream Queen
         </p>
 
 
@@ -67,8 +84,16 @@ class App extends Component {
             </nav>
 
             <header className="image-bg-fluid-height">
-                <img className="img-responsive img-center" src="http://placehold.it/200x200&text=Logo" alt="" />
+                <img className="img-responsive img-center" src={icecream} alt="" />
             </header>
+
+            <section>
+            <div>
+               <a onClick={this.onClick.bind(this)} href='#'>Click Here</a>
+              {this.state.showIceCream && < IceCream / >}
+            </div>
+
+            </section>
 
             <section>
                 <div className="container">
@@ -112,9 +137,21 @@ class App extends Component {
 
         </body>
 
+
       </div>
     );
   }
 }
 
 export default App;
+
+class IceCream extends React.Component {
+  constructor() {
+    super()
+  }
+  render(){
+    return(
+      <div>I'm Ice Cream</div>
+    )
+  }
+}
