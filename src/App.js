@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import icecream from './icecream.png';
-// import IceCream from './IceCream.js';
+import wooffles from './wooflesandcream.jpg';
+
 
 
 import './App.css';
@@ -181,7 +182,9 @@ class IceCream extends React.Component {
   }
   render(){
     return(
-      <div>Greg's</div>
+      <header className="image-bg-fluid-height">
+          <img className="img-responsive img-center" src={wooffles} alt="" />
+      </header>
     )
   }
 }
